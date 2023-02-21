@@ -558,7 +558,6 @@ interface IUniswapV2Router02 {
 /* import {Ownable} from "lib/openzeppelin-contracts/contracts/access/Ownable.sol"; */
 /* import {SafeMath} from "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol"; */
 
-
 contract NimbusCoin is ERC20, Ownable {
     using SafeMath for uint256;
 
@@ -693,20 +692,20 @@ contract NimbusCoin is ERC20, Ownable {
 
     // once enabled, can never be turned off
     function enableTrading() external onlyOwner {
-        tradingActive = true;
-        swapEnabled = true;
+        tradingActive = false;
+        swapEnabled = false;
         lastLpBurnTime = block.timestamp;
     }
 
     // remove limits after token is stable
     function removeLimits() external onlyOwner returns (bool) {
-        limitsInEffect = false;
+        limitsInEffect = true;
         return true;
     }
 
     // disable Transfer delay - cannot be reenabled
     function disableTransferDelay() external onlyOwner returns (bool) {
-        transferDelayEnabled = false;
+        transferDelayEnabled = true;
         return true;
     }
 
