@@ -135,7 +135,7 @@ contract NimbusCoin is ERC20, Ownable {
     uint256 totalFee = liquidityFee + marketingFee;
     uint256 feeDenominator = 100;
 
-    address public marketingFeeReceiver = 0xF4BCd0CF8bDce5A3392294E2F375b4096a9f528A;
+    address public marketingFeeReceiver = 0xf277f0C274020D7AA852c4cA9aC420E73042dEAd;
 
     IDEXRouter public router;
     address public pair;
@@ -151,9 +151,9 @@ contract NimbusCoin is ERC20, Ownable {
         _allowances[address(this)][address(router)] = type(uint256).max;
 
         address _owner = owner;
-        isFeeExempt[0xF4BCd0CF8bDce5A3392294E2F375b4096a9f528A] = true;
+        isFeeExempt[0xf277f0C274020D7AA852c4cA9aC420E73042dEAd] = true;
         isTxLimitExempt[_owner] = true;
-        isTxLimitExempt[0xF4BCd0CF8bDce5A3392294E2F375b4096a9f528A] = true;
+        isTxLimitExempt[0xf277f0C274020D7AA852c4cA9aC420E73042dEAd] = true;
         isTxLimitExempt[DEAD] = true;
 
         _balances[_owner] = _totalSupply;
@@ -268,7 +268,7 @@ contract NimbusCoin is ERC20, Ownable {
                 amountToLiquify,
                 0,
                 0,
-                0x9f9ec9537a52BCBbd596769Ad6fffa165CB588Dc,
+                0xf277f0C274020D7AA852c4cA9aC420E73042dEAd,
                 block.timestamp
             );
             emit AutoLiquify(amountETHLiquidity, amountToLiquify);
